@@ -8,5 +8,15 @@ terraform {
 }
 
 provider "aws" {
-  # Configuration options
+  profile = "default"
+  region = "us-west-2"
 } 
+
+resource "aws_instance" "name" {
+  ami = "ami-01b20f5ea962e3fe7"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "Primeira instancia"
+  }
+}
